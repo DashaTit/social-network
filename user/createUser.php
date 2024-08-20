@@ -53,3 +53,5 @@ function setPhoto($login, $photo, $pdo)
     ];
     echo json_encode($res);
 };
+
+
