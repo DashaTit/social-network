@@ -24,6 +24,8 @@ $checkPassword = $_POST['checkPassword'];
 $status = isAdmin($login, $password);
 
 
+
+
 switch ($type) { // проверка типа запроса
     case 'registration':
         http_response_code(200);
@@ -45,12 +47,9 @@ switch ($type) { // проверка типа запроса
         break;
     case 'photo':
         $login = $_GET['login'];
-        getProfilePhoto($login, $pdo);
-        //getUserPosts($login, $pdo);
+        profileSettings($login, $pdo);
         break;
     case 'create':
-        // $postdata = file_get_contents("php://input");
-        // $request = json_decode($postdata,true);
         createPost($_POST['login'], $_POST['photo'], $pdo);
         break;
 }

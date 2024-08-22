@@ -54,4 +54,16 @@ function setPhoto($login, $photo, $pdo)
     echo json_encode($res);
 };
 
+function profileSettings($login, $pdo) {
+    $photo = getProfilePhoto($login, $pdo);
+    $posts = getUserPosts($login, $pdo);
+
+    http_response_code(200);
+    $res = [
+        'status' => 'true',
+        'posts' => $posts,
+        'photo' => $photo
+    ];
+    echo json_encode($res);
+}
 

@@ -39,7 +39,6 @@ function getProfilePhoto($login, $pdo)
     $data = $query->fetchAll();
     $imagedata = file_get_contents($data[0]['photo']);
     $base64 = base64_encode($imagedata);
-
-    http_response_code(200);
-    echo json_encode($base64);
+    
+    return json_encode("data:image/png;base64,$base64");
 }

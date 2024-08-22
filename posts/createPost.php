@@ -1,12 +1,13 @@
 <?php
 
-function createPost($login, $link, $pdo) {
-    $time = trim(date("Y-m-d-H-i-s", time()));
-    $photoName = trim("userPosts/$login-$time.png");
-    $ifp = fopen( "userPosts/$time.png", 'wb' ); 
-    $data = explode( ',', $link );
-    fwrite( $ifp, base64_decode( $data[ 1 ] ) );
-    fclose( $ifp );
+function createPost($login, $link, $pdo)
+{
+    $time = date("Y-m-d-H-i-s", time());
+    $photoName = "userPosts/$login-$time.png";
+    $ifp = fopen($photoName, 'wb');
+    $data = explode(',', $link);
+    fwrite($ifp, base64_decode($data[1]));
+    fclose($ifp);
 
     $sql = "INSERT INTO Posts(user_name, post) VALUES (?, ?)";
     $stmt = $pdo->prepare($sql);
@@ -19,23 +20,19 @@ function createPost($login, $link, $pdo) {
     echo json_encode($res);
 }
 
-function getUserPosts($login, $pdo) {
+function getUserPosts($login, $pdo)
+{
     $posts = [];
     $sql = 'SELECT post FROM `Posts` WHERE user_name = ?';
     $query = $pdo->prepare($sql);
     $query->execute([$login]);
     $result = $query->fetchAll();
-    for ($i=0;$i<count($result);$i++){
-        $posts[] = $result[$i][0];
+    for ($i = 0; $i < count($result); $i++) {
+        $imagedata = file_get_contents($result[$i][0]);
+        $base64 = base64_encode($imagedata);
+        $posts[] = "data:image/png;base64,$base64";
     }
-    http_response_code(200);
-    $res = [
-        'status' => 'true',
-        'message' => $posts
-    ];
-    echo json_encode($res);
+    return $posts;
+
+    
 }
-
-
-
-?>
