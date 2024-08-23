@@ -60,7 +60,6 @@ function profileSettings($login, $pdo) {
 
     http_response_code(200);
     $res = [
-        'status' => 'true',
         'posts' => $posts,
         'photo' => $photo
     ];

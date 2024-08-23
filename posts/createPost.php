@@ -32,7 +32,19 @@ function getUserPosts($login, $pdo)
         $base64 = base64_encode($imagedata);
         $posts[] = "data:image/png;base64,$base64";
     }
-    return $posts;
+    echo json_encode($posts);
+}
 
-    
+function getAllPosts($pdo) {
+    $posts = [];
+    $sql = 'SELECT post FROM `Posts`';
+    $query = $pdo->prepare($sql);
+    $query->execute([]);
+    $result = $query->fetchAll();
+    for ($i = 0; $i < count($result); $i++) {
+        $imagedata = file_get_contents($result[$i][0]);
+        $base64 = base64_encode($imagedata);
+        $posts[] = "data:image/png;base64,$base64";
+    }
+    echo json_encode($posts);
 }

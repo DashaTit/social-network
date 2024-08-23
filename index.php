@@ -40,6 +40,7 @@ switch ($type) { // проверка типа запроса
     case 'login':
         verificationTest($login, $password, $checkPassword); // validation
         login($login, $password, $pdo);
+        getProfilePhoto($login, $pdo);
         break;
     case 'profile':
         echo json_encode($res);
@@ -47,9 +48,17 @@ switch ($type) { // проверка типа запроса
         break;
     case 'photo':
         $login = $_GET['login'];
-        profileSettings($login, $pdo);
+        $photo = getProfilePhoto($login, $pdo);
+        echo $photo;
+        //profileSettings($login, $pdo);
         break;
     case 'create':
         createPost($_POST['login'], $_POST['photo'], $pdo);
+        break;
+    case "post":
+        getUserPosts($_GET['login'], $pdo);
+        break;
+    case "allPosts":
+        getAllPosts($pdo);
         break;
 }

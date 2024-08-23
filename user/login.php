@@ -14,10 +14,11 @@ function login($login, $password, $pdo)
             ];
             echo json_encode($res);
         } else {
+            $photo = getProfilePhoto($login, $pdo);
             http_response_code(200);
             $res = [
                 'status' => 'true',
-                'message' => 'login!'
+                'message' => $photo
             ];
             echo json_encode($res);
         }
@@ -37,8 +38,7 @@ function getProfilePhoto($login, $pdo)
     $query = $pdo->prepare($sql);
     $query->execute([$login]);
     $data = $query->fetchAll();
-    $imagedata = file_get_contents($data[0]['photo']);
+    $imagedata = file_get_contents($data[0]["photo"]);
     $base64 = base64_encode($imagedata);
-    
     return json_encode("data:image/png;base64,$base64");
 }
