@@ -5,7 +5,7 @@
 function createUser($login, $password, $pdo, $status)
 {
     try {
-        $sql = 'SELECT id FROM users WHERE login = ? AND password = ?';
+        $sql = 'SELECT id FROM Users WHERE login = ? AND password = ?';
         $query = $pdo->prepare($sql);
         $query->execute([$login, $password]);
         if ($query->rowCount() === 0) {
