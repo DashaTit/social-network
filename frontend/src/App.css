@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
+.container {
+    background-color: #f4587d;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+    width: 100%;
+    border-radius: 12px;
+    height: 640px;
+}
+
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.peoples {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo, .reg, .log {
+    text-align: center;
+}
+.logo:hover, .reg:hover, .log:hover {
+    cursor: pointer;
+}
+
+.plus {
+    margin-right: 60px;
+}
+
+.logo:hover .logo-title, .reg:hover .logo-title, .log:hover .logo-title {
+    color: pink;
+    box-shadow: pink 0px 8px 24px;
+}
+
+.log {
+    margin-left: 20px;
+}
+
+.logo-img {
+    width: 50px;
+    border-radius: 50px;
+}
+
+.logo-title {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color:aliceblue;
+    transition: all 0.5s;
+}
+
+.logo-title:hover {
+    color: pink;
+}
+
+.exit {
+    margin-left: 25px;
+    text-align: center;
+}
+
+.exit:hover {
+    cursor: pointer;
+}
+
+.exit > img {
+    width: 50px;
+    height: 50px;
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+input[type="file"] {
+    display: none;
+}

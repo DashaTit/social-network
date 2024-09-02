@@ -1,0 +1,82 @@
+.title {
+    font-size: 32px;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+    margin-bottom: 30px;
+}
+
+.title:hover {
+    cursore: pointer;
+}
+
+.undertitle {
+    font-size: 16px;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+}
+
+a {
+    background-color: transparent;
+    color: pink;
+    transition: all 0.3s;
+}
+
+a:hover {
+    box-shadow: pink 0px 8px 24px;
+}
+
+/* // '' */
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.icon {
+    width: 300px;
+    border-radius: 12px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+
+.modal {
+    position: absolute;
+    background-color: #f880ad;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    padding-bottom: 50px;
+    width: 100%;
+    border-radius: 12px;
+    /* height: 340px; */
+    text-align: center;
+}
+
+.example__button {
+    margin-top: 10px;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    background-color: pink;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: aliceblue;
+    font-size: 18px;
+    outline: 0;
+    padding: 4px 20px 0;
+    margin-bottom: 10px;
+}
+.main {
+    text-align: center;
+}
